@@ -8,7 +8,7 @@ public class ListNode {
 
 class Solution {
   public ListNode reverseList(ListNode head) {
-    ListNode behind = new ListNode();
+    ListNode behind = null;
     while (head != null) {
       ListNode next = head.next;
       head.next = behind;
