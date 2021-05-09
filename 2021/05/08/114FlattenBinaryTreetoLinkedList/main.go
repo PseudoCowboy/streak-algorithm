@@ -20,7 +20,7 @@ func flatten(root *TreeNode) {
 	root.Right = left
 
 	p := root
-	for p != nil {
+	for p.Right != nil {
 		p = p.Right
 	}
 	p.Right = right
