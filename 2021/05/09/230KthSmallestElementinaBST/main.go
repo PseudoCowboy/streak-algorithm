@@ -41,3 +41,41 @@ func inorder1(root *TreeNode, k int, index *int, res *int) {
 	}
 	inorder1(root.Right, k, index, res)
 }
+
+func kthSmallest1(root *TreeNode, k int) int {
+	result := make([]int, 0)
+	inorder2(root, &result, k)
+	return result[k-1]
+}
+
+func inorder2(root *TreeNode, result *[]int, k int) {
+	if len(*result) == k {
+		return
+	}
+	if root == nil {
+		return
+	}
+
+	if root.Left != nil {
+		inorder2(root.Left, result)
+	}
+	*result = append(*result, root.Val)
+	if root.Right != nil {
+		inorder2(root.Right, result)
+	}
+}
+
+func inorder3(root *TreeNode, result *[]int) {
+	stack := make([]*TreeNode, 0)
+	cur := root
+	for cur != nil || len(stack) != 0 {
+		for cur != nil {
+			stack = append(stack, cur)
+			cur = cur.Left
+		}
+		cur = stack[len(stack)-1]
+		*result = append(*result, cur.Val)
+		stack = stack[:len(stack)-1]
+		cur = cur.Right
+	}
+}
