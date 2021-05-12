@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(longestPalindromeSubseq("a"))
+	a := "Q."
+	fmt.Println(a[0], a[1])
 }
 
 func longestPalindromeSubseq(s string) int {
