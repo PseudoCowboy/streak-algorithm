@@ -39,7 +39,7 @@ func checkInclusion(s1 string, s2 string) bool {
 
 }
 
-func checkInclusion(s1 string, s2 string) bool {
+func checkInclusion1(s1 string, s2 string) bool {
 	need := make(map[byte]int)
 	window := make(map[byte]int)
 	s1Len := len(s1)

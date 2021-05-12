@@ -31,7 +31,7 @@ func constructMaximumBinaryTree(nums []int) *TreeNode {
 	return root
 }
 
-func constructMaximumBinaryTree(nums []int) *TreeNode {
+func constructMaximumBinaryTree1(nums []int) *TreeNode {
 	if len(nums) == 0 {
 		return nil
 	}
@@ -45,10 +45,10 @@ func constructMaximumBinaryTree(nums []int) *TreeNode {
 	}
 	root := &TreeNode{Val: max}
 	if maxIndex != 0 {
-		root.Left = constructMaximumBinaryTree(nums[:maxIndex])
+		root.Left = constructMaximumBinaryTree1(nums[:maxIndex])
 	}
 	if maxIndex != len(nums)-1 {
-		root.Right = constructMaximumBinaryTree(nums[maxIndex+1:])
+		root.Right = constructMaximumBinaryTree1(nums[maxIndex+1:])
 	}
 	return root
 }

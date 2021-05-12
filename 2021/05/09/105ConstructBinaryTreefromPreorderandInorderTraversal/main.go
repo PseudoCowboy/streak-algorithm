@@ -30,7 +30,7 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 	return root
 }
 
-func buildTree(preorder []int, inorder []int) *TreeNode {
+func buildTree1(preorder []int, inorder []int) *TreeNode {
 	if len(preorder) == 0 {
 		return nil
 	}
