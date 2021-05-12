@@ -29,3 +29,23 @@ func min(a, b int) int {
 	}
 	return b
 }
+
+func pack(w, v int) {
+	dp := make([][]int, w)
+	for i := 0; i < w; i++ {
+		dp[i] = make([]int, v)
+	}
+
+	for i := 0; i < w; i++ {
+		for j := 0; j < v; j++ {
+
+		}
+	}
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
