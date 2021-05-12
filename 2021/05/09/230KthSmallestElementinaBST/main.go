@@ -42,7 +42,7 @@ func inorder1(root *TreeNode, k int, index *int, res *int) {
 	inorder1(root.Right, k, index, res)
 }
 
-func kthSmallest1(root *TreeNode, k int) int {
+func kthSmallest2(root *TreeNode, k int) int {
 	result := make([]int, 0)
 	inorder2(root, &result, k)
 	return result[k-1]
@@ -57,11 +57,11 @@ func inorder2(root *TreeNode, result *[]int, k int) {
 	}
 
 	if root.Left != nil {
-		inorder2(root.Left, result)
+		inorder2(root.Left, result, k)
 	}
 	*result = append(*result, root.Val)
 	if root.Right != nil {
-		inorder2(root.Right, result)
+		inorder2(root.Right, result, k)
 	}
 }
 
