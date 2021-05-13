@@ -28,3 +28,28 @@ func minDepth(root *TreeNode) int {
 	return 1 + right
 
 }
+
+func minDepth1(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	stack := []*TreeNode{root}
+	depth := 1
+	for len(stack) != 0 {
+		current := len(stack)
+		for i := 0; i < current; i++ {
+			if stack[i].Left == nil && stack[i].Right == nil {
+				return depth
+			}
+			if stack[i].Left != nil {
+				stack = append(stack, stack[i].Left)
+			}
+			if stack[i].Right != nil {
+				stack = append(stack, stack[i].Right)
+			}
+		}
+		stack = stack[current:]
+		depth++
+	}
+	return depth
+}
