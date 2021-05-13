@@ -1,3 +1,5 @@
 # streak-algorithm
 
-# 我他妈就是个傻逼
+日常刷题
+
+_issue_ 总结生活学习
