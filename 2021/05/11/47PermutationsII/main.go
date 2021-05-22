@@ -25,6 +25,7 @@ func helper(nums []int, level int, current []int, result *[][]int, used *[]bool)
 		*result = append(*result, temp)
 		return
 	}
+	// 1, 1, 3
 	for i := 0; i < len(nums); i++ {
 		if !(*used)[i] {
 			if i > 0 && nums[i] == nums[i-1] && !(*used)[i-1] {
