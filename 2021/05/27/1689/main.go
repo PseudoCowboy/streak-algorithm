@@ -1,5 +1,12 @@
 package main
 
+import "fmt"
+
+func main() {
+	m := make(map[int]int)
+	fmt.Println(m[1], m)
+}
+
 func minPartitions(n string) int {
 	res := 0
 	for i := 0; i < len(n); i++ {
