@@ -13,3 +13,27 @@ func rotate(matrix [][]int) {
 		}
 	}
 }
+
+func findRotation(mat [][]int, target [][]int) bool {
+	for i := 0; i < len(mat); i++ {
+		for j := i; j < len(mat); j++ {
+			mat[i][j], mat[j][i] = mat[j][i], mat[i][j]
+		}
+	}
+
+	for i := 0; i < len(mat); i++ {
+		for j := 0; j < len(mat)/2; j++ {
+			mat[i][j], mat[i][len(mat)-1-j] = mat[i][len(mat)-1-j], mat[i][j]
+		}
+	}
+
+	for i := 0; i < len(mat); i++ {
+		for j := 0; j < len(mat); j++ {
+			if mat[i][j] != target[i][j] {
+				return false
+			}
+		}
+	}
+
+	return true
+}
