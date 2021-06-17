@@ -13,5 +13,6 @@ func numSubarrayBoundedMax(nums []int, left int, right int) int {
 		}
 		ans += temp
 	}
+
 	return ans
 }
