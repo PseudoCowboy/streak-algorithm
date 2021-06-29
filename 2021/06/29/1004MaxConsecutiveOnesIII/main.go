@@ -8,7 +8,7 @@ func main() {
 	fmt.Println(longestOnes([]int{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, 3))
 }
 
-func longestOnes(nums []int, k int) int {
+func longestOnes1(nums []int, k int) int {
 	left, right := 0, 0
 	count := 0
 	total := 0
@@ -30,4 +30,35 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+
+func longestOnes(nums []int, k int) int {
+	left, right := 0, 0
+	count := 0
+	max := 0
+	for right < len(nums) {
+		if nums[right] == 1 {
+			count++
+			if count > max {
+				max = count
+			}
+		} else {
+			if k > 0 {
+				count++
+				k--
+				if count > max {
+					max = count
+				}
+			} else {
+				for nums[left] != 0 {
+					count--
+					left++
+				}
+				left++
+			}
+		}
+		right++
+	}
+
+	return max
 }
