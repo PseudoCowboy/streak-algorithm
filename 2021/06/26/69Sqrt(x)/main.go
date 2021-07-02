@@ -5,7 +5,9 @@ import (
 )
 
 func main() {
-	fmt.Println(mySqrt(8))
+	for i := 0; i < 20; i++ {
+		fmt.Println(mySqrt(i))
+	}
 }
 
 func mySqrt(x int) int {
