@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
 
 func main() {
@@ -10,22 +9,23 @@ func main() {
 }
 
 func lastStoneWeightII(stones []int) int {
-	sort.Ints(stones)
-	for len(stones) > 1 {
-		temp := make([]int, 0)
-		for i := len(stones) - 1; i >= 1; i -= 2 {
-			if stones[i]-stones[i-1] > 0 {
-				temp = append(temp, stones[i]-stones[i-1])
-			}
-		}
-		if len(stones)%2 == 1 {
-			temp = append(temp, stones[len(stones)-1])
-		}
-		stones = temp
-		sort.Ints(stones)
+	sum := 0
+	for _, v := range stones {
+		sum += v
 	}
-	if len(stones) > 0 {
-		return stones[0]
+	half := sum >> 1
+	dp := make([]int, half+1)
+	for _, v := range stones {
+		for i := half; i >= v; i-- {
+			dp[i] = max(dp[i], dp[i-v]+v)
+		}
 	}
-	return 0
+	return sum - 2*dp[half]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
