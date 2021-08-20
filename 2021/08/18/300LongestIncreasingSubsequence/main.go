@@ -1,7 +1,7 @@
 package main
 
 func main() {
-	lengthOfLIS1([]int{1, 3, 6, 7, 9, 4, 10, 5, 6})
+	lengthOfLIS1([]int{4, 10, 4, 3, 8, 9})
 }
 
 func lengthOfLIS(nums []int) int {
@@ -45,7 +45,8 @@ func lengthOfLIS1(nums []int) int {
 				if dp[mid] >= num {
 					pos = mid
 					right = mid - 1
-				} else {
+				}
+				if dp[mid] < num {
 					left = mid + 1
 				}
 			}
