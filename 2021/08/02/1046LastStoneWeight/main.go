@@ -7,19 +7,23 @@ import (
 )
 
 func main() {
-	fmt.Println(lastStoneWeight([]int{2, 7, 4, 1, 8, 1}))
+	fmt.Println(lastStoneWeight2([]int{2, 7, 4, 1, 8, 1}))
 }
 
 func lastStoneWeight2(stones []int) int {
 	pq := IntHeap(stones)
 	heap.Init(&pq)
-	for pq.Len() > 1 {
-		x, y := heap.Pop(&pq).(int), heap.Pop(&pq).(int)
-		fmt.Println(x, y)
-		heap.Push(&pq, x-y)
+	for i := range pq {
+		fmt.Println(pq[i])
 
 	}
-	return heap.Pop(&pq).(int)
+	// for pq.Len() > 1 {
+	// 	x, y := heap.Pop(&pq).(int), heap.Pop(&pq).(int)
+	// 	fmt.Println(x, y)
+	// 	heap.Push(&pq, x-y)
+
+	// }
+	return 0
 }
 
 type IntHeap []int
@@ -49,15 +53,18 @@ func lastStoneWeight(stones []int) int {
 		h[i] = stones[i]
 	}
 	heap.Init(&h)
-	for len(h) > 1 {
-		x, y := heap.Pop(&h).(int), heap.Pop(&h).(int)
-		if x-y > 0 {
-			heap.Push(&h, x-y)
-		}
+	for i := range h {
+		fmt.Println(h[i])
 	}
-	if h.Len() > 0 {
-		return h.Pop().(int)
-	}
+	// for len(h) > 1 {
+	// 	x, y := heap.Pop(&h).(int), heap.Pop(&h).(int)
+	// 	if x-y > 0 {
+	// 		heap.Push(&h, x-y)
+	// 	}
+	// }
+	// if h.Len() > 0 {
+	// 	return h.Pop().(int)
+	// }
 	return 0
 }
 
