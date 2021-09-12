@@ -9,6 +9,8 @@ func main() {
 	outerTrees([][]int{
 		{1, 1}, {2, 2}, {2, 0}, {2, 4}, {3, 3}, {4, 2},
 	})
+
+	fmt.Println(checkOnLine([]int{2, 0}, []int{2, 2}, []int{2, 4}))
 }
 
 func outerTrees(trees [][]int) [][]int {
@@ -23,18 +25,13 @@ func outerTrees(trees [][]int) [][]int {
 	})
 	fmt.Println(trees)
 	for i := 0; i < n; i++ {
-		fmt.Println(stack)
-		if k >= 2 {
-			fmt.Println(checkOnLine(stack[k-2], stack[k-1], trees[i]))
-			fmt.Println(stack[k-2], stack[k-1], trees[i])
-		}
 		for k >= 2 && checkOnLine(stack[k-2], stack[k-1], trees[i]) < 0 {
 			k--
 		}
 		stack[k] = trees[i]
 		k++
 	}
-	fmt.Println(k, stack)
+	fmt.Println(stack, k)
 	for i := n - 2; i >= 0; i-- {
 		for k >= 2 && checkOnLine(stack[k-2], stack[k-1], trees[i]) < 0 {
 			k--
@@ -42,7 +39,6 @@ func outerTrees(trees [][]int) [][]int {
 		stack[k] = trees[i]
 		k++
 	}
-	fmt.Println(k, stack)
 	return stack[:k-1]
 }
 

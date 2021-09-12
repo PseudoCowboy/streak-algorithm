@@ -1,5 +1,7 @@
 package main
 
+import "math/rand"
+
 func minimumTotal(triangle [][]int) int {
 	for i := 1; i < len(triangle); i++ {
 		for j := 0; j < len(triangle[i]); j++ {
@@ -20,6 +22,7 @@ func minimumTotal(triangle [][]int) int {
 			ans = triangle[len(triangle)-1][i]
 		}
 	}
+	rand.Intn(7)
 	return ans
 }
 
