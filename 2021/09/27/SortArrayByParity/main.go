@@ -7,30 +7,18 @@ func main() {
 }
 
 func sortArrayByParity(nums []int) []int {
-	if len(nums) == 2 {
-		if nums[0]%2 == 1 && nums[1]%2 == 0 {
-			return []int{nums[1], nums[0]}
-		} else {
-			return nums
+	odd := len(nums) - 1
+	for i := 0; i < len(nums); i++ {
+		if nums[i]%2 == 0 {
+			continue
 		}
-	}
-	left, right := 0, len(nums)-1
-	for left < right {
-		for nums[left]%2 == 0 {
-			left++
-			if left == len(nums) || left > right {
+		for nums[odd]%2 == 1 {
+			odd--
+			if odd < i {
 				return nums
 			}
 		}
-		for nums[right]%2 == 1 {
-			right--
-			if right < 0 || left > right {
-				return nums
-			}
-		}
-		nums[left], nums[right] = nums[right], nums[left]
-		left++
-		right--
+		nums[i], nums[odd] = nums[odd], nums[i]
 	}
 	return nums
 }
