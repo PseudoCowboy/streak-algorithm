@@ -14,6 +14,7 @@ func main() {
 }
 
 func stoneGameIX(stones []int) bool {
+
 	if len(stones) == 1 {
 		return false
 	}
