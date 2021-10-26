@@ -47,13 +47,10 @@ func reachableNodes(edges [][]int, maxMoves int, n int) int {
 			}
 		}
 	}
-	fmt.Println(dist)
 	ans := 0
 	for _, edge := range edges {
 		left := max(0, min(maxMoves-dist[edge[1]], edge[2]))
-		fmt.Println(max(0, min(maxMoves-dist[0], edge[2])))
-		right := max(0, min(maxMoves-dist[0], edge[2]))
-		fmt.Println(left + right)
+		right := max(0, min(maxMoves-dist[edge[0]], edge[2]))
 		ans += min(left+right, edge[2])
 	}
 	for i := range dist {
