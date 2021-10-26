@@ -4,6 +4,7 @@ import "fmt"
 
 func main() {
 	binarySearch2([]int{1, 2, 2, 2, 2, 3, 5}, 0)
+
 }
 
 func binarySearch2(arr []int, target int) {
